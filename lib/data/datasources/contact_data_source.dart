@@ -20,14 +20,12 @@ class ContactLocalDataSource {
       _cache = contactMockData;
       await _saveCache();
     } else {
-      _cache = contactMockData;
-      await _saveCache();
-      // 기존에 저장된 JSON 불러오기
-      // final List<dynamic> decoded = jsonDecode(jsonString);
-      // _cache =
-      //     decoded
-      //         .map((e) => Contact.fromJson(e as Map<String, dynamic>))
-      //         .toList();
+      //기존에 저장된 JSON 불러오기
+      final List<dynamic> decoded = jsonDecode(jsonString);
+      _cache =
+          decoded
+              .map((e) => Contact.fromJson(e as Map<String, dynamic>))
+              .toList();
     }
   }
 
